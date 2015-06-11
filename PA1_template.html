@@ -120,6 +120,9 @@ max_col &lt;- gsub(&quot;^(\\d{2})(\\d{2})$&quot;, &quot;\\1:\\2&quot;, max_col)
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
 <hr />
+<div id="strategy" class="section level4">
+<h4>Strategy</h4>
+<p>The strategy used to impute NA values is to take the mean steps for the particular interval in question across all the days. So, for example, for the 8:00-8:05 interval, the mean for this interval across all days was used to fill in any NA values seeen for this interval.</p>
 <pre class="r"><code># get the total na values
 tot_na &lt;- table(is.na(act$steps))[2]
 
@@ -147,6 +150,7 @@ hist(per_day, main = &quot;Histogram of Total Steps per Day&quot;, xlab = &quot;
 
 md2 &lt;- median(per_day, na.rm = T)</code></pre>
 <p>There are 2304 missing observations in the dataset. The MEAN total number of steps per day with imputed missing values is 10765.64. The difference between the non-imputed NA values and the imputed NA values is only 0.55 steps. The MEDIAN total number of steps per day is 10762 steps. The difference in median values is only 3 steps. The effect of imputing the values is negligible as expected because the percent of NA values was fairly low to begin with at 13.11%.</p>
+</div>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>

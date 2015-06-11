@@ -86,6 +86,10 @@ max_col <- gsub("^(\\d{2})(\\d{2})$", "\\1:\\2", max_col)
 ##Imputing missing values
 ***
 
+####Strategy
+The strategy used to impute NA values is to take the mean steps for the particular interval in question across all the days. So, for example, for the 8:00-8:05 interval, the mean for this interval across all days was used to fill in any NA values seeen for this interval.
+
+
 ```r
 # get the total na values
 tot_na <- table(is.na(act$steps))[2]
